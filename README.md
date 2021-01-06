@@ -13,7 +13,7 @@ Pode demorar um pouco se for o primeiro provisionamento da máquina.
 
 Provisionando inline com o Ansible:
 ```shell
-ansible <host_name> -u <user> --private-key <private_key> -i <hosts_file> -m <module_name> -a <module_args>
+ansible <host_name> -i <hosts_file> [-u <user>] [--private-key <private_key>] [-m <module_name>] [-a <module_args>]
 ```
 
 Exemplo:
@@ -25,10 +25,10 @@ Caso enfrente erro de SSH ou chave não encontrada, execute o script *set_ssh.sh
 
 Para executar um playbook (template de configuração), utilize o comando:
 ```shell
-ansible-playbook <playbook_file> -u <user> --private-key <private_key> -i <hosts_file>
+ansible-playbook <playbook_file> -i <hosts_file> [-u <user>] [--private-key <private_key>] [-vvvv]
 ```
 
 Exemplo:
 ```shell
-ansible-playbook provisioning.yml -u vagrant --private-key ~/wordpress/private_key -i hosts
+ansible-playbook provisioning.yml -i hosts
 ```

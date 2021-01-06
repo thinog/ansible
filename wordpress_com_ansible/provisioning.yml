@@ -1,0 +1,30 @@
+---
+- hosts: all
+  tasks:
+    ### DEPRECATED ###
+    # - 
+    #   name: 'Install dependencies'
+    #   apt: 
+    #     name: "{{item}}"
+    #     state: latest
+    #   become: yes
+    #   with_items:
+    #     - php7.2
+    #     - apache2
+    #     - libapache2-mod-php7.2
+
+    - 
+      name: Update apt and install dependencies
+      apt: 
+        name:
+          - php7.2
+          - apache2
+          - libapache2-mod-php7.2
+          - php7.2-gd
+          - php-ssh2
+          - mysql-server-5.7
+          - python-mysqldb
+          - php7.2-mysql
+        state: latest
+        update_cache: yes
+      become: yes
