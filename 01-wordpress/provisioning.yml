@@ -1,4 +1,21 @@
 ---
 - hosts: all
   tasks:
-    - shell: 'echo Hello! > /home/vagrant/world.txt'
+    - 
+      name: 'Install PHP7.2'
+      apt: 
+        name: php7.2
+        state: latest
+      become: yes
+    - 
+      name: 'Install Apache2'
+      apt:
+        name: apache2
+        state: latest
+      become: yes
+    -
+      name: 'Install modphp'
+      apt: 
+        name: libapache2-mod-php7.2
+        state: latest
+      become: yes
