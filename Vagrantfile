@@ -2,12 +2,14 @@
 ####### ANSIBLE LINUX HOST #######
 ##################################
 
-$ansible_install_script = <<-SCRIPT
+$ansible_config_script = <<-SCRIPT
     export DEBIAN_FRONTEND=noninteractive    
     apt-get update && \
     apt-get install -y software-properties-common && \
     apt-add-repository --yes --update ppa:ansible/ansible && \
     apt-get install -y ansible
+
+    /vagrant/wordpress_com_ansible/set_project.sh
 SCRIPT
 
 $vagrant_install_script = <<-SCRIPT
@@ -34,7 +36,7 @@ Vagrant.configure("2") do |config|
     end
 
     config.vm.define "ansible" do |ansible|
-        ansible.vm.provision "shell", inline: $ansible_install_script
+        ansible.vm.provision "shell", inline: $ansible_config_script
         # ansible.vm.provision "shell", inline: $vagrant_install_script
         # ansible.vm.provision "shell", inline: $virtualbox_install_script
     end
