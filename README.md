@@ -1,5 +1,5 @@
 # Ansible
-Aplicação de conteúdo estudado em curso de Ansible da Alura
+Aplicação de conteúdo estudado em curso de Ansible da Alura.
 
 Criada máquina host do Ansible para o caso de executar em Windows, que não possui suporte. Basta executar da raiz.
 
@@ -13,7 +13,7 @@ Pode demorar um pouco se for o primeiro provisionamento da máquina.
 
 Provisionando inline com o Ansible:
 ```shell
-ansible <host_name> -i <hosts_file> [-u <user>] [--private-key <private_key>] [-m <module_name>] [-a <module_args>]
+ansible <host_name> -i <hosts_file> [-u <user>] [--private-key <private_key>] [-m <module_name>] [-a <module_args>] [--extra-vars '<var_key>=<var_value>']
 ```
 
 Exemplo:
